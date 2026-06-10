@@ -22,6 +22,16 @@ class State:
 
     def __lt__(self, other):
         return False
+    
+    def __eq__(self, other):
+        return (
+            self.left_missionaries == other.left_missionaries
+            and self.left_cannibals == other.left_cannibals
+            and self.boat == other.boat
+        )
+
+    def __hash__(self):
+        return hash((self.left_missionaries, self.left_cannibals, self.boat))
 
     def successors(self):
         successors = []
