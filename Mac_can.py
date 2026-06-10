@@ -12,8 +12,9 @@ class State:
             return False
         if 3 - self.left_missionaries < 0 or 3 - self.left_cannibals < 0:
             return False
-        if (self.left_missionaries != 0 and self.left_missionaries < self.left_cannibals) or \
-           (3 - self.left_missionaries != 0 and 3 - self.left_missionaries < 3 - self.left_cannibals):
+        if (self.left_missionaries != 0 and self.left_missionaries < self.left_cannibals):
+            return False
+        if(3 - self.left_missionaries != 0 and 3 - self.left_missionaries < 3 - self.left_cannibals):
             return False
         return True
 
